@@ -14,7 +14,7 @@ const CleaveInput = ({ value, onChange, ...props }) => {
         delimiter: '.',
         decimalSeparator: ',',
         numeralDecimalScale: 2,
-        numeralIntegerScale: 7, // Permite até 9999999
+        numeralIntegerScale: 7, // Permite até 9.999,99
       });
     }
   }, []);

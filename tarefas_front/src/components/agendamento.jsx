@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 const Agendamento = () => {
     const { register, handleSubmit, reset } = useForm();
     const [aviso, setAviso] = useState("");
-    const [avisoTipo, setAvisoTipo] = useState(""); // Adicionando tipo de aviso
+    const [avisoTipo, setAvisoTipo] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState("00:00");
     const [servico, setServicos] = useState([]);

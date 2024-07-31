@@ -23,7 +23,7 @@ const EditarAgendamento = () => {
 
     const fetchClientes = async () => {
       try {
-        const response = await api.get('/cliente'); // Substitua pelo endpoint correto
+        const response = await api.get('/cliente'); 
         setClientes(response.data);
       } catch (error) {
         console.error('Erro ao buscar clientes:', error);
@@ -32,7 +32,7 @@ const EditarAgendamento = () => {
 
     const fetchServicos = async () => {
       try {
-        const response = await api.get('/servico'); // Substitua pelo endpoint correto
+        const response = await api.get('/servico'); 
         setServicos(response.data);
       } catch (error) {
         console.error('Erro ao buscar serviços:', error);

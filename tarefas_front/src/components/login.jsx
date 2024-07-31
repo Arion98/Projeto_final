@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from './AuthProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/FormularioLogin.css';
+import '../css/FormularioLogin.css'; // Ensure this CSS file contains your custom styles
 
 const FormularioLogin = () => {
     const [email, setEmail] = useState("");
@@ -41,36 +41,51 @@ const FormularioLogin = () => {
     };
 
     return (
-        <section className="vh-100">
-            <div className="container py-5 h-100">
-                <div className="row d-flex align-items-center justify-content-center h-100">
-                    <div className="col-md-8 col-lg-7 col-xl-6">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
-                    </div>
-                    <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-outline mb-4">
-                                <label className="form-label" htmlFor="username">USUÁRIO</label>
-                                <input type="text" id="username" className="form-control form-control-lg" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            </div>
-                            <div className="form-outline mb-4">
-                                <label className="form-label" htmlFor="senha">SENHA</label>
-                                <input type="password" id="senha" className="form-control form-control-lg" value={cliente_senha} onChange={(e) => setClienteSenha(e.target.value)} />
-                            </div>
-                            <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
-                            <div>
-                            <a href='http://localhost:5173/endereco' className="text-decoration-none mt-3 btn-link-custom">Ainda não possui login? Cadastre-se aqui</a>
-
-                            <a href='http://localhost:5173/enderecoTo' className="text-decoration-none mt-3 btn-link-custom">Cadastre-se como um Prestador de Serviços</a>
-                            </div>
-                        </form>
-                        {error && (
-                            <div className="alert alert-danger mt-3">{error}</div>
-                        )}
-                    </div>
-                </div>
+        <div className="login-container">
+            <form onSubmit={handleSubmit} className="form-login">
+                <ul className="login-nav">
+                    <li className="login-nav__item active">
+                        <a href="#">Sign In</a>
+                    </li>
+                    <li className="login-nav__item">
+                        <a href="#">Sign Up</a>
+                    </li>
+                </ul>
+                <label htmlFor="username" className="login__label">
+                    Username
+                </label>
+                <input
+                    type="text"
+                    id="username"
+                    className="login__input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <label htmlFor="senha" className="login__label">
+                    Password
+                </label>
+                <input
+                    type="password"
+                    id="senha"
+                    className="login__input"
+                    value={cliente_senha}
+                    onChange={(e) => setClienteSenha(e.target.value)}
+                />
+                <label htmlFor="login-sign-up" className="login__label--checkbox">
+                    <input id="login-sign-up" type="checkbox" className="login__input--checkbox" />
+                    Keep me Signed in
+                </label>
+                <button type="submit" className="login__submit">Sign in</button>
+            </form>
+            <a href="#" className="login__forgot">Forgot Password?</a>
+            {error && (
+                <div className="alert alert-danger mt-3">{error}</div>
+            )}
+            <div className="links-container">
+                <a href='http://localhost:5173/endereco' className="btn-link-custom">Ainda não possui login? Cadastre-se aqui</a>
+                <a href='http://localhost:5173/enderecoTo' className="btn-link-custom">Cadastre-se como um Prestador de Serviços</a>
             </div>
-        </section>
+        </div>
     );
 };
 
